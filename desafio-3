@@ -1,0 +1,99 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyP2n/lEe2tEgttRKEfhq7Fl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/leandrogerolim/desafio-academia-capgemini/blob/main/desafio-3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from random import choice #importar bibliotecas\n",
+        "import string\n",
+        " \n",
+        "tamanhoPalavra = int (random.randint(1,20)) # variável definindo quantidade de caracteres da palavra \n",
+        "caracteres = string.ascii_lowercase #variável definindo o tipo de caracteres \n",
+        "palavra = '' #variável que armazena os valores \n",
+        "\n",
+        "for i in range(tamanhoPalavra): #definindo enquanto (i) estiver no range do tamanho da palavra\n",
+        "  palavra += choice(caracteres) # concatena ou soma os valores na variável (palavra)\n",
+        "\n",
+        "print ('Palavra gerada: ', palavra) #imprime a palavra para gabarito\n",
+        "\n",
+        "anagramas = [] #criação da lista dentro da variável (anagrama)\n",
+        "# for definindo range e concatenando a variável (palavra)\n",
+        "\n",
+        "for i in range(len(palavra)):\n",
+        "  auxPalavra = palavra[i]\n",
+        "  for y in range(i, len(palavra)):\n",
+        "    if y == i:\n",
+        "      auxPalavra = auxPalavra\n",
+        "    else:\n",
+        "      auxPalavra += palavra[y] #else concatenando as posições que podem ser repetidas na (auxpalavra)\n",
+        "    anagramas += [''.join(sorted(auxPalavra))]\n",
+        "  \n",
+        "contAnagramas = 0  # contador inicial da variável (contAnagramas)\n",
+        "\n",
+        "for i in range(len(anagramas)): # for para avaliar se a varialvel (anagramas) está dentro do range quando true ele faz i+1\n",
+        "  for y in range(i + 1, len(anagramas)):\n",
+        "    if anagramas [y] == anagramas[i]:\n",
+        "      contAnagramas +=(1)\n",
+        "\n",
+        "totalAnagramas = contAnagramas #variável com valor total da contagem de pares do anagrama\n",
+        "\n",
+        "print('Quantidade de Anagramas: ', totalAnagramas) #print com o valor final de anagramas"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "O1J_xxM0Khqn",
+        "outputId": "eb8216ff-9137-44cb-c153-8263f8c039c4"
+      },
+      "execution_count": 196,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Palavra gerada:  pqwjnqkijuqoqexw\n",
+            "Quantidade de Anagramas:  16\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "UoZ_24FnU9A_"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
